@@ -1,12 +1,13 @@
 import argparse
+from rich import print
+from rich.progress import track
 from api.virustotal import get_reputation
 from utils.file_handler import read_domains_from_file, save_report
 from utils.report_generator import generate_report
 
 def process_domains(domains):
     results = {}
-    for domain in domains:
-        print(f"Checking reputation for {domain}...")
+    for domain in track(domains, description="Checking domain reputations..."):
         results[domain] = get_reputation(domain)
     return results
 
@@ -27,13 +28,13 @@ def main():
         domains.extend(read_domains_from_file(args.file))
 
     if not domains:
-        print("Please provide a domain or a file containing a list of domains.")
+        print("[red]Please provide a domain or a file containing a list of domains.[/red]")
         return
 
     results = process_domains(domains)
-    report = generate_report(results)
-    save_report(report, args.output)
-    print(f"Report saved to {args.output}")
+    generate_report(results)
+    save_report(results, args.output)
+    print(f"Report saved to [green]{args.output}[/green]")
 
 if __name__ == "__main__":
     main()

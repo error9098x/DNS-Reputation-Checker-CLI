@@ -1,0 +1,10 @@
+google.com
+example.com
+yahoo.com
+microsoft.com
+reddit.com
+apple.com
+amazon.com
+facebook.com
+twitter.com
+linkedin.com
