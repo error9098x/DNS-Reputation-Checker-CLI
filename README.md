@@ -18,14 +18,18 @@ This Python script allows you to quickly check the reputation of domains using t
 ```bash
 python dns_reputation_checker.py -d example.com
 ```
+![Screenshot from 2024-05-31 19-35-39](https://github.com/error9098x/DNS-Reputation-Checker-CLI/assets/43810146/cad065e6-4cdc-42f9-a858-aba1949ed7ed)
+
 
 **Batch Processing:**
 
 ```bash
 python dns_reputation_checker.py -f domain_list.txt
 ```
+![Screenshot from 2024-05-31 19-37-05](https://github.com/error9098x/DNS-Reputation-Checker-CLI/assets/43810146/6b567f30-8cea-49cb-84be-7319597098fe)
 
 **Custom Output File:**
+
 
 ```bash
 python dns_reputation_checker.py -d example.com -o custom_report.json
